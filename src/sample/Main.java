@@ -15,6 +15,7 @@ public class Main extends Application {
         primaryStage.setTitle("TIC TAC TOE");
         primaryStage.setScene(new Scene(bp));
         primaryStage.show();
+
     }
 
 
