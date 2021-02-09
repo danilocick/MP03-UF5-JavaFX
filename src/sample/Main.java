@@ -4,18 +4,32 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.GridPane;
+import javafx.scene.control.Tab;
 import javafx.stage.Stage;
+import sample.Controller.Tablero;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent bp = FXMLLoader.load(getClass().getResource("tablero.fxml"));
-        primaryStage.setTitle("TIC TAC TOE");
-        primaryStage.setScene(new Scene(bp));
-        primaryStage.show();
+        //Carregar FXML
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("tablero.fxml"));
+        Parent root = loader.load();
 
+        //SCENE TO WORK
+        Scene scene = new Scene(root);
+
+        //Injectar Scene i Stage
+        Tablero tablero = loader.getController();
+        tablero.setScene(scene);
+        tablero.setStage(primaryStage);
+
+        //CSS
+        //scene.getStylesheets().add("CSS/button-styles.css");
+
+        primaryStage.setTitle("TIC TAC TOE");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
 
