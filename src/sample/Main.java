@@ -4,7 +4,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Tab;
 import javafx.stage.Stage;
 import sample.Controller.Tablero;
 
@@ -25,7 +24,7 @@ public class Main extends Application {
         tablero.setStage(primaryStage);
 
         //CSS
-        //scene.getStylesheets().add("CSS/button-styles.css");
+        scene.getStylesheets().add("sample/CSS/button-styles.css");
 
         primaryStage.setTitle("TIC TAC TOE");
         primaryStage.setScene(scene);

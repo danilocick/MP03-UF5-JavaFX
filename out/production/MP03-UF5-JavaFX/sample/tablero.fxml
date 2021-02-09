@@ -37,43 +37,45 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Button fx:id="button1play" mnemonicParsing="false" onAction="#onClickButtonPlay" text="Button" />
-                              <Button fx:id="button2play" mnemonicParsing="false" onAction="#onClickButtonPlay" text="Button" GridPane.columnIndex="1" />
-                              <Button fx:id="button3play" mnemonicParsing="false" onAction="#onClickButtonPlay" text="Button" GridPane.columnIndex="2" />
-                              <Button fx:id="button4play" mnemonicParsing="false" onAction="#onClickButtonPlay" text="Button" GridPane.rowIndex="1" />
-                              <Button fx:id="button5play" mnemonicParsing="false" onAction="#onClickButtonPlay" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <Button fx:id="button6play" mnemonicParsing="false" onAction="#onClickButtonPlay" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                              <Button fx:id="button7play" mnemonicParsing="false" onAction="#onClickButtonPlay" text="Button" GridPane.rowIndex="2" />
-                              <Button fx:id="button8play" mnemonicParsing="false" onAction="#onClickButtonPlay" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <Button fx:id="button9play" mnemonicParsing="false" onAction="#onClickButtonPlay" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <Button fx:id="button1play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="131.0" prefWidth="122.0" text="Button" />
+                              <Button fx:id="button2play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="135.0" prefWidth="146.0" text="Button" GridPane.columnIndex="1" />
+                              <Button fx:id="button3play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="222.0" prefWidth="186.0" text="Button" GridPane.columnIndex="2" />
+                              <Button fx:id="button4play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="193.0" prefWidth="171.0" text="Button" GridPane.rowIndex="1" />
+                              <Button fx:id="button5play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="221.0" prefWidth="215.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Button fx:id="button6play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="228.0" prefWidth="210.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <Button fx:id="button7play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="182.0" prefWidth="179.0" text="Button" GridPane.rowIndex="2" />
+                              <Button fx:id="button8play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="269.0" prefWidth="200.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Button fx:id="button9play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="269.0" prefWidth="197.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                            </children>
                         </GridPane>
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="369.0" prefWidth="230.0" style="-fx-background-color: #4dff4d;">
                      <children>
-                        <GridPane alignment="TOP_CENTER" prefHeight="369.0" prefWidth="226.0" style="-fx-background-color: #c4ffc4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <GridPane alignment="CENTER_LEFT" prefHeight="369.0" prefWidth="226.0" style="-fx-background-color: #c4ffc4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                           </columnConstraints>
                           <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <RadioButton alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="18.0" prefWidth="209.0" text="Computer VS Computer" />
-                              <RadioButton alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="18.0" prefWidth="211.0" text="Computer VS Human" GridPane.rowIndex="1" />
-                              <RadioButton alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="18.0" prefWidth="207.0" selected="true" text="Human VS Human" GridPane.rowIndex="2" />
-                              <Button fx:id="buttonstart" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#onClickStart" text="Start" GridPane.rowIndex="4" />
-                              <Text fill="#fc0000" strokeType="OUTSIDE" strokeWidth="0.0" text="Torn" textAlignment="CENTER" wrappingWidth="212.478515625" GridPane.rowIndex="3">
+                              <Button fx:id="buttonstart" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#onClickStart" prefHeight="69.0" prefWidth="242.0" text="Start" GridPane.rowIndex="2" />
+                              <Text fill="#fc0000" strokeType="OUTSIDE" strokeWidth="0.0" text="Torn" textAlignment="CENTER" wrappingWidth="212.478515625" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets />
                                  </GridPane.margin>
                               </Text>
+                              <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <RadioButton alignment="CENTER_LEFT" mnemonicParsing="false" text="Computer VS.Computer" />
+                                    <RadioButton alignment="CENTER_LEFT" mnemonicParsing="false" prefHeight="38.0" prefWidth="166.0" text="Computer VS. Human" />
+                                    <RadioButton alignment="CENTER_LEFT" mnemonicParsing="false" text="Human VS. Human" />
+                                 </children>
+                              </VBox>
                            </children>
                         </GridPane>
                      </children></AnchorPane>

@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -35,6 +37,10 @@ public class Tablero implements Initializable {
     //onclick On Start
     public void onClickStart(ActionEvent actionEvent) {
         Button b = (Button) actionEvent.getSource();
+//        if(exists human){
+//            demanar nom huma;
+//        }
+
         b.setText("The match has begun");
     }
 
@@ -43,6 +49,8 @@ public class Tablero implements Initializable {
         setTorn(false);
 
         Button b = (Button) actionEvent.getSource();
+        Text textWins;
+        //textWins.setVisible(true);
 
         if(isTorn()){
             b.setText("true");
@@ -54,11 +62,11 @@ public class Tablero implements Initializable {
         stage.close();
     }
 
-
     //Getters i Setters
     public boolean isTorn() {
         return torn;
     }
+
     public void setTorn(boolean torn) {
         this.torn = torn;
     }
