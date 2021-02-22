@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
 <?import java.lang.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.Tablero">
    <children>
@@ -22,7 +20,7 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <SplitPane dividerPositions="0.6153846153846154" prefHeight="391.0" prefWidth="600.0" style="-fx-background-color: #c4ffc4;">
+            <SplitPane dividerPositions="0.6153846153846154" prefHeight="391.0" prefWidth="600.0">
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #009d00;">
                      <children>
@@ -51,9 +49,9 @@
                         </GridPane>
                      </children>
                   </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="369.0" prefWidth="230.0" style="-fx-background-color: #4dff4d;">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="369.0" prefWidth="230.0">
                      <children>
-                        <GridPane alignment="CENTER_LEFT" prefHeight="369.0" prefWidth="226.0" style="-fx-background-color: #c4ffc4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <GridPane id="background" alignment="CENTER_LEFT" layoutX="11.0" prefHeight="369.0" prefWidth="226.0" stylesheets="@CSS/button-styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                           </columnConstraints>
@@ -65,7 +63,7 @@
                           </rowConstraints>
                            <children>
                               <Text fx:id="textWins" fill="#ee0000" onDragDetected="#onClickTextWins" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Player Wins" textOrigin="CENTER" visible="false" wrappingWidth="216.7294921875" GridPane.rowIndex="3" />
-                              <Button fx:id="buttonstart" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#onClickStart" prefHeight="69.0" prefWidth="242.0" text="Start" GridPane.rowIndex="2" />
+                              <Button fx:id="buttonStart" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#onClickStart" prefHeight="69.0" prefWidth="208.0" text="Start" GridPane.rowIndex="2" />
                               <Text fill="#fc0000" strokeType="OUTSIDE" strokeWidth="0.0" text="Torn" textAlignment="CENTER" wrappingWidth="212.478515625" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets />
@@ -73,9 +71,12 @@
                               </Text>
                               <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <RadioButton alignment="CENTER_LEFT" mnemonicParsing="false" text="Computer VS.Computer" />
-                                    <RadioButton alignment="CENTER_LEFT" mnemonicParsing="false" prefHeight="38.0" prefWidth="166.0" text="Computer VS. Human" />
-                                    <RadioButton alignment="CENTER_LEFT" mnemonicParsing="false" text="Human VS. Human" />
+                                    <RadioButton alignment="CENTER_LEFT" mnemonicParsing="false" prefHeight="18.0" prefWidth="214.0" text="Computer VS.Computer">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="gameType" />
+                                       </toggleGroup></RadioButton>
+                                    <RadioButton alignment="CENTER_LEFT" mnemonicParsing="false" prefHeight="38.0" prefWidth="214.0" selected="true" text="Computer VS. Human" toggleGroup="$gameType" />
+                                    <RadioButton alignment="CENTER_LEFT" mnemonicParsing="false" prefHeight="18.0" prefWidth="212.0" text="Human VS. Human" toggleGroup="$gameType" />
                                  </children>
                               </VBox>
                            </children>

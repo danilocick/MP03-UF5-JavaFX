@@ -24,6 +24,7 @@ public class Main extends Application {
         tablero.setStage(primaryStage);
 
         //CSS
+//        http://fxexperience.com/2011/12/styling-fx-buttons-with-css/
         scene.getStylesheets().add("sample/CSS/button-styles.css");
 
         primaryStage.setTitle("TIC TAC TOE");
