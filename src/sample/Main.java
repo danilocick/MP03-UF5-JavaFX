@@ -20,8 +20,8 @@ public class Main extends Application {
 
         //Injectar Scene i Stage
         Tablero tablero = loader.getController();
-        tablero.setScene(scene);
-        tablero.setStage(primaryStage);
+        tablero.setScenePrincipal(scene);
+        tablero.setStagePrincipal(primaryStage);
 
         //CSS
 //        http://fxexperience.com/2011/12/styling-fx-buttons-with-css/

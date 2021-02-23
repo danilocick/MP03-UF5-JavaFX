@@ -1,29 +1,25 @@
 package sample.Controller;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Tablero implements Initializable {
 
-    private Scene scene;
-    private Stage stage;
+    private Scene scenePrincipal;
+    private Scene sceneInsertar;
+    private Stage stagePrincipal;
+    public static Stage stageInsertar;
 
     private boolean torn;
     private boolean iniciopartida = false;
@@ -46,12 +42,12 @@ public class Tablero implements Initializable {
 
     }
 
-    public void setScene(Scene scene) {
-        this.scene=scene;
+    public void setScenePrincipal(Scene scenePrincipal) {
+        this.scenePrincipal = scenePrincipal;
     }
 
-    public void setStage(Stage primaryStage) {
-        this.stage =primaryStage;
+    public void setStagePrincipal(Stage primaryStage) {
+        this.stagePrincipal =primaryStage;
     }
 
 
@@ -64,18 +60,16 @@ public class Tablero implements Initializable {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("../insertarNombre.fxml"));
-                /*
-                 * if "fx:controller" is not set in fxml
-                 * fxmlLoader.setController(NewWindowController);
-                 */
-                Scene scene = new Scene(fxmlLoader.load(), 150, 150);
-                Stage stage = new Stage();
-                stage.setTitle("Nom");
-                stage.setScene(scene);
-                stage.show();
+
+                sceneInsertar = new Scene(fxmlLoader.load(), 150,200);
+                stageInsertar = new Stage();
+
+                stageInsertar.setTitle("Name");
+                stageInsertar.setScene(sceneInsertar);
+                stageInsertar.show();
+
             } catch (IOException e) {
-                Logger logger = Logger.getLogger(getClass().getName());
-                logger.log(Level.SEVERE, "Failed to create new Window.", e);
+                e.printStackTrace();
             }
         });
 
@@ -101,7 +95,7 @@ public class Tablero implements Initializable {
 
     //closeApp
     public void onClickCloseApp(ActionEvent actionEvent) {
-        stage.close();
+        stagePrincipal.close();
     }
 
     //Getters i Setters

@@ -36,15 +36,15 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Button fx:id="button1play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="131.0" prefWidth="122.0" text="Button" />
-                              <Button fx:id="button2play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="135.0" prefWidth="146.0" text="Button" GridPane.columnIndex="1" />
-                              <Button fx:id="button3play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="222.0" prefWidth="186.0" text="Button" GridPane.columnIndex="2" />
-                              <Button fx:id="button4play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="193.0" prefWidth="171.0" text="Button" GridPane.rowIndex="1" />
-                              <Button fx:id="button5play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="221.0" prefWidth="215.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <Button fx:id="button6play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="228.0" prefWidth="210.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                              <Button fx:id="button7play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="182.0" prefWidth="179.0" text="Button" GridPane.rowIndex="2" />
-                              <Button fx:id="button8play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="269.0" prefWidth="200.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <Button fx:id="button9play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="269.0" prefWidth="197.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                               <Button fx:id="button1play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="269.0" prefWidth="200.0" text="Button" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                               <Button fx:id="button2play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="269.0" prefWidth="197.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                               <Button fx:id="button3play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="269.0" prefWidth="200.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                               <Button fx:id="button4play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="269.0" prefWidth="197.0" text="Button" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                               <Button fx:id="button5play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="269.0" prefWidth="200.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                               <Button fx:id="button6play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="269.0" prefWidth="197.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                               <Button fx:id="button7play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="269.0" prefWidth="200.0" text="Button" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                               <Button fx:id="button8play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="269.0" prefWidth="200.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                               <Button fx:id="button9play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="269.0" prefWidth="197.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                            </children>
                         </GridPane>
                      </children>
@@ -71,12 +71,13 @@
                               </Text>
                               <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <RadioButton alignment="CENTER_LEFT" mnemonicParsing="false" prefHeight="18.0" prefWidth="214.0" text="Computer VS.Computer">
+                                    <RadioButton mnemonicParsing="false" prefHeight="32.0" prefWidth="214.0" text="Computer VS.Computer">
                                        <toggleGroup>
                                           <ToggleGroup fx:id="gameType" />
-                                       </toggleGroup></RadioButton>
-                                    <RadioButton alignment="CENTER_LEFT" mnemonicParsing="false" prefHeight="38.0" prefWidth="214.0" selected="true" text="Computer VS. Human" toggleGroup="$gameType" />
-                                    <RadioButton alignment="CENTER_LEFT" mnemonicParsing="false" prefHeight="18.0" prefWidth="212.0" text="Human VS. Human" toggleGroup="$gameType" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" prefHeight="32.0" prefWidth="214.0" selected="true" text="Computer VS. Human" toggleGroup="$gameType" />
+                                    <RadioButton mnemonicParsing="false" prefHeight="32.0" prefWidth="214.0" text="Human VS. Human" toggleGroup="$gameType" />
                                  </children>
                               </VBox>
                            </children>
