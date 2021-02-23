@@ -60,9 +60,9 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Text fx:id="textWins" fill="#ee0000" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Player Wins" textOrigin="CENTER" visible="false" wrappingWidth="216.7294921875" GridPane.rowIndex="3" />
                               <Button fx:id="buttonStart" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#onClickStart" prefHeight="69.0" prefWidth="208.0" text="Start" GridPane.rowIndex="2" />
                               <Text fx:id="textTorn" fill="#fc0000" strokeType="OUTSIDE" strokeWidth="0.0" text="Torn" textAlignment="CENTER" wrappingWidth="212.478515625" GridPane.rowIndex="1">
                                  <GridPane.margin>
@@ -80,6 +80,8 @@
                                     <RadioButton mnemonicParsing="false" prefHeight="32.0" prefWidth="214.0" text="Human VS. Human" toggleGroup="$gameType" />
                                  </children>
                               </VBox>
+                              <Text fx:id="playerA" strokeType="OUTSIDE" strokeWidth="0.0" text="JugadorA: W/E" GridPane.rowIndex="3" />
+                               <Text fx:id="playerB" strokeType="OUTSIDE" strokeWidth="0.0" text="JugadorB: W/E" GridPane.rowIndex="4" />
                            </children>
                         </GridPane>
                      </children></AnchorPane>

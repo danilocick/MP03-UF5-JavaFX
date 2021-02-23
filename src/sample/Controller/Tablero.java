@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import sample.Data.Jugador;
 
 import java.io.IOException;
 import java.net.URL;
@@ -35,6 +36,11 @@ public class Tablero implements Initializable {
     public Button buttonStart;
     public Text textTorn;
 
+    //PLAYERS
+    public static Jugador jugadorA;
+    public static Jugador jugadorB;
+    public static Text playerA;
+    public static Text playerB;
 
     //Al carregar, es fa el metode initialize
     @Override
@@ -72,7 +78,8 @@ public class Tablero implements Initializable {
                 e.printStackTrace();
             }
         });
-
+        playerB.setText(Tablero.jugadorA.getNombre()+": "+Tablero.jugadorA.getPartidas_ganadas()+"/"+Tablero.jugadorA.getPartidas_empatadas());
+        playerB.setText(Tablero.jugadorB.getNombre()+": "+Tablero.jugadorB.getPartidas_ganadas()+"/"+Tablero.jugadorB.getPartidas_empatadas());
         setIniciopartida(true);
     }
 
