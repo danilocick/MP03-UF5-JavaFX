@@ -82,10 +82,10 @@ public class Tablero implements Initializable {
             Button b = (Button) actionEvent.getSource();
 
             if(isTorn()){
-                b.setText("true");
+                b.setText("X");
                 setTorn(false);
             }else{
-                b.setText("false");
+                b.setText("O");
                 setTorn(true);
             }
         }else{
