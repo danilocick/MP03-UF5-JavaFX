@@ -26,6 +26,7 @@ public class Tablero implements Initializable {
     private Stage stage;
 
     private boolean torn;
+    private boolean iniciopartida = false;
     public Button button1play;
     public Button button2play;
     public Button button3play;
@@ -36,6 +37,7 @@ public class Tablero implements Initializable {
     public Button button8play;
     public Button button9play;
     public Button buttonStart;
+    public Text textTorn;
 
 
     //Al carregar, es fa el metode initialize
@@ -57,7 +59,7 @@ public class Tablero implements Initializable {
     //onclick On Start
     public void onClickStart(ActionEvent actionEvent) throws IOException {
         Button b = (Button) actionEvent.getSource();
-//        if(exists human){
+        //insertar nombre
         b.setOnMouseClicked((event) -> {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
@@ -77,21 +79,24 @@ public class Tablero implements Initializable {
             }
         });
 
-//        }
-//        b.setText("The match has begun");
+        setIniciopartida(true);
     }
 
     //onclickToPlay
     public void onClickButtonPlay(ActionEvent actionEvent) {
-        setTorn(false);
+        if (isIniciopartida()){
+            Button b = (Button) actionEvent.getSource();
 
-        Button b = (Button) actionEvent.getSource();
-        Text textWins;
-        //textWins.setVisible(true);
-
-        if(isTorn()){
-            b.setText("true");
-        }else b.setText("false");
+            if(isTorn()){
+                b.setText("true");
+                setTorn(false);
+            }else{
+                b.setText("false");
+                setTorn(true);
+            }
+        }else{
+            textTorn.setText("Click on Start to begin");
+        }
     }
 
     //closeApp
@@ -106,5 +111,13 @@ public class Tablero implements Initializable {
 
     public void setTorn(boolean torn) {
         this.torn = torn;
+    }
+
+    public boolean isIniciopartida() {
+        return iniciopartida;
+    }
+
+    public void setIniciopartida(boolean iniciopartida) {
+        this.iniciopartida = iniciopartida;
     }
 }
