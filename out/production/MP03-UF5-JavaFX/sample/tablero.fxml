@@ -37,8 +37,8 @@
                           </rowConstraints>
                            <children>
                                <Button fx:id="button1play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="269.0" prefWidth="200.0" text="Button" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                               <Button fx:id="button2play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="269.0" prefWidth="197.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                               <Button fx:id="button3play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="269.0" prefWidth="200.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                               <Button fx:id="button3play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="269.0" prefWidth="197.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                               <Button fx:id="button2play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="269.0" prefWidth="200.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                                <Button fx:id="button4play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="269.0" prefWidth="197.0" text="Button" GridPane.columnIndex="0" GridPane.rowIndex="1" />
                                <Button fx:id="button5play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="269.0" prefWidth="200.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                <Button fx:id="button6play" mnemonicParsing="false" onAction="#onClickButtonPlay" prefHeight="269.0" prefWidth="197.0" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1" />
@@ -71,13 +71,13 @@
                               </Text>
                               <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <RadioButton mnemonicParsing="false" prefHeight="32.0" prefWidth="214.0" text="Computer VS.Computer">
+                                    <RadioButton fx:id="radioButtonA" mnemonicParsing="false" prefHeight="32.0" prefWidth="214.0" text="Computer VS.Computer">
                                        <toggleGroup>
                                           <ToggleGroup fx:id="gameType" />
                                        </toggleGroup>
                                     </RadioButton>
-                                    <RadioButton mnemonicParsing="false" prefHeight="32.0" prefWidth="214.0" selected="true" text="Computer VS. Human" toggleGroup="$gameType" />
-                                    <RadioButton mnemonicParsing="false" prefHeight="32.0" prefWidth="214.0" text="Human VS. Human" toggleGroup="$gameType" />
+                                    <RadioButton fx:id="radioButtonB" mnemonicParsing="false" prefHeight="32.0" prefWidth="214.0" selected="true" text="Computer VS. Human" toggleGroup="$gameType" />
+                                    <RadioButton fx:id="radioButtonC" mnemonicParsing="false" prefHeight="32.0" prefWidth="214.0" text="Human VS. Human" toggleGroup="$gameType" />
                                  </children>
                               </VBox>
                               <Text fx:id="playerA" strokeType="OUTSIDE" strokeWidth="0.0" text="JugadorA: W/E" GridPane.rowIndex="3" />

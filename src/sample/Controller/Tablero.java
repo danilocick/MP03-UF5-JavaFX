@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.Data.Jugador;
@@ -25,6 +26,7 @@ public class Tablero implements Initializable {
 
     private boolean torn;
     private boolean iniciopartida = false;
+    private boolean primeraJugada = true;
     public Button button1play;
     public Button button2play;
     public Button button3play;
@@ -35,6 +37,9 @@ public class Tablero implements Initializable {
     public Button button8play;
     public Button button9play;
     public Button buttonStart;
+    public RadioButton radioButtonA;
+    public RadioButton radioButtonB;
+    public RadioButton radioButtonC;
     public Text textTorn;
 
     //PLAYERS
@@ -87,14 +92,23 @@ public class Tablero implements Initializable {
         if (isIniciopartida()){
             Button b = (Button) actionEvent.getSource();
 
-            if(isTorn()){
-                b.setText("X");
-                setTorn(false);
-                comprovarGanador();
-            }else{
-                b.setText("O");
-                setTorn(true);
-                comprovarGanador();
+            if (primeraJugada) {
+                primeraJugada=false;
+                setTextJugadores();
+            }
+
+            if (b.getText().equals("")) {
+                if(isTorn()){
+                    b.setText(jugadorA.getNombre());
+                    setTorn(false);
+                    comprovarGanador();
+                }else{
+                    b.setText(jugadorB.getNombre());
+                    setTorn(true);
+                    comprovarGanador();
+                }
+            }else {
+
             }
         }else{
             textTorn.setText("Click on Start to begin");
@@ -102,12 +116,11 @@ public class Tablero implements Initializable {
     }
 
     //closeApp
-
     public void onClickCloseApp(ActionEvent actionEvent) {
         stagePrincipal.close();
     }
-    //Getters i Setters
 
+    //Getters i Setters
     public boolean isTorn() {
         return torn;
     }
@@ -130,12 +143,53 @@ public class Tablero implements Initializable {
     }
 
     private void comprovarGanador() {
-        boolean wins=false;
-        wins = true;
-        if (wins) {
+        if (isTorn()) {
+            //JGADOR 2
 
-            setTextJugadores();
+            if (button1play.getText().equals(jugadorB.getNombre()) && button2play.getText().equals(jugadorB.getNombre()) && button3play.getText().equals(jugadorB.getNombre()) || button4play.getText().equals(jugadorB.getNombre()) && button5play.getText().equals(jugadorB.getNombre()) && button6play.getText().equals(jugadorB.getNombre()) || button7play.getText().equals(jugadorB.getNombre()) && button8play.getText().equals(jugadorB.getNombre()) && button9play.getText().equals(jugadorB.getNombre())){
+                jugadorB.partidas_ganadas++;
+                reBegin();
+                setTextJugadores();
+            } else if (button1play.getText().equals(jugadorB.getNombre()) && button4play.getText().equals(jugadorB.getNombre()) && button7play.getText().equals(jugadorB.getNombre()) || button2play.getText().equals(jugadorB.getNombre()) && button5play.getText().equals(jugadorB.getNombre()) && button8play.getText().equals(jugadorB.getNombre()) || button3play.getText().equals(jugadorB.getNombre()) && button6play.getText().equals(jugadorB.getNombre()) && button9play.getText().equals(jugadorB.getNombre())){
+                jugadorB.partidas_ganadas++;
+                reBegin();
+                setTextJugadores();
+            } else if (button1play.getText().equals(jugadorB.getNombre()) && button5play.getText().equals(jugadorB.getNombre()) && button9play.getText().equals(jugadorB.getNombre()) || button3play.getText().equals(jugadorB.getNombre()) && button5play.getText().equals(jugadorB.getNombre()) && button7play.getText().equals(jugadorB.getNombre())){
+                jugadorB.partidas_ganadas++;
+                reBegin();
+                setTextJugadores();
+            }
+        }else {
+            //JGADOR 1
+
+            if (button1play.getText().equals(jugadorA.getNombre()) && button2play.getText().equals(jugadorA.getNombre()) && button3play.getText().equals(jugadorA.getNombre()) || button4play.getText().equals(jugadorA.getNombre()) && button5play.getText().equals(jugadorA.getNombre()) && button6play.getText().equals(jugadorA.getNombre()) || button7play.getText().equals(jugadorA.getNombre()) && button8play.getText().equals(jugadorA.getNombre()) && button9play.getText().equals(jugadorA.getNombre())){
+                jugadorA.partidas_ganadas++;
+                reBegin();
+                setTextJugadores();
+            } else if (button1play.getText().equals(jugadorA.getNombre()) && button4play.getText().equals(jugadorA.getNombre()) && button7play.getText().equals(jugadorA.getNombre()) || button2play.getText().equals(jugadorA.getNombre()) && button5play.getText().equals(jugadorA.getNombre()) && button8play.getText().equals(jugadorA.getNombre()) || button3play.getText().equals(jugadorA.getNombre()) && button6play.getText().equals(jugadorA.getNombre()) && button9play.getText().equals(jugadorA.getNombre())){
+                jugadorA.partidas_ganadas++;
+                reBegin();
+                setTextJugadores();
+            } else if (button1play.getText().equals(jugadorA.getNombre()) && button5play.getText().equals(jugadorA.getNombre()) && button9play.getText().equals(jugadorA.getNombre()) || button3play.getText().equals(jugadorA.getNombre()) && button5play.getText().equals(jugadorA.getNombre()) && button7play.getText().equals(jugadorA.getNombre())){
+                jugadorA.partidas_ganadas++;
+                reBegin();
+                setTextJugadores();
+            }
         }
+    }
+
+    private void reBegin() {
+        button1play.setText("");
+        button2play.setText("");
+        button3play.setText("");
+        button4play.setText("");
+        button5play.setText("");
+        button6play.setText("");
+        button7play.setText("");
+        button8play.setText("");
+        button9play.setText("");
+
+
     }
 
 }
