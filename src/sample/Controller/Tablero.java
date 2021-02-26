@@ -71,15 +71,30 @@ public class Tablero implements Initializable {
         //insertar nombre
         b.setOnMouseClicked((event) -> {
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("../insertarNombre.fxml"));
+                if (radioButtonA.isSelected()){
+                    Tablero.jugadorA = new Jugador("jugador1");
+                    Tablero.jugadorB = new Jugador("jugador2");
+                }else if (radioButtonB.isSelected()){
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("../insertarSoloUnJugador.fxml"));
 
-                sceneInsertar = new Scene(fxmlLoader.load(), 150,200);
-                stageInsertar = new Stage();
+                    sceneInsertar = new Scene(fxmlLoader.load(), 150,150);
+                    stageInsertar = new Stage();
 
-                stageInsertar.setTitle("Name");
-                stageInsertar.setScene(sceneInsertar);
-                stageInsertar.show();
+                    stageInsertar.setTitle("Name");
+                    stageInsertar.setScene(sceneInsertar);
+                    stageInsertar.show();
+                } else if (radioButtonC.isSelected()){
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("../insertarNombre.fxml"));
+
+                    sceneInsertar = new Scene(fxmlLoader.load(), 150,200);
+                    stageInsertar = new Stage();
+
+                    stageInsertar.setTitle("Name");
+                    stageInsertar.setScene(sceneInsertar);
+                    stageInsertar.show();
+                }
 
             } catch (IOException e) {
                 e.printStackTrace();
