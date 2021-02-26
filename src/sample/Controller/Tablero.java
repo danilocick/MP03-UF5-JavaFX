@@ -9,6 +9,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.Data.Jugador;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -39,8 +40,8 @@ public class Tablero implements Initializable {
     //PLAYERS
     public static Jugador jugadorA;
     public static Jugador jugadorB;
-    public static Text playerA;
-    public static Text playerB;
+    public Text playerA;
+    public Text playerB;
 
     //Al carregar, es fa el metode initialize
     @Override
@@ -78,8 +79,6 @@ public class Tablero implements Initializable {
                 e.printStackTrace();
             }
         });
-        playerB.setText(Tablero.jugadorA.getNombre()+": "+Tablero.jugadorA.getPartidas_ganadas()+"/"+Tablero.jugadorA.getPartidas_empatadas());
-        playerB.setText(Tablero.jugadorB.getNombre()+": "+Tablero.jugadorB.getPartidas_ganadas()+"/"+Tablero.jugadorB.getPartidas_empatadas());
         setIniciopartida(true);
     }
 
@@ -91,9 +90,11 @@ public class Tablero implements Initializable {
             if(isTorn()){
                 b.setText("X");
                 setTorn(false);
+                comprovarGanador();
             }else{
                 b.setText("O");
                 setTorn(true);
+                comprovarGanador();
             }
         }else{
             textTorn.setText("Click on Start to begin");
@@ -101,15 +102,15 @@ public class Tablero implements Initializable {
     }
 
     //closeApp
+
     public void onClickCloseApp(ActionEvent actionEvent) {
         stagePrincipal.close();
     }
-
     //Getters i Setters
+
     public boolean isTorn() {
         return torn;
     }
-
     public void setTorn(boolean torn) {
         this.torn = torn;
     }
@@ -121,4 +122,20 @@ public class Tablero implements Initializable {
     public void setIniciopartida(boolean iniciopartida) {
         this.iniciopartida = iniciopartida;
     }
+
+
+    public void setTextJugadores() {
+        playerA.setText(Tablero.jugadorA.getNombre()+": "+Tablero.jugadorA.getPartidas_ganadas()+"/"+Tablero.jugadorA.getPartidas_empatadas());
+        playerB.setText(Tablero.jugadorB.getNombre()+": "+Tablero.jugadorB.getPartidas_ganadas()+"/"+Tablero.jugadorB.getPartidas_empatadas());
+    }
+
+    private void comprovarGanador() {
+        boolean wins=false;
+        wins = true;
+        if (wins) {
+
+            setTextJugadores();
+        }
+    }
+
 }
