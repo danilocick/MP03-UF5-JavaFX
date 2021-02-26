@@ -102,14 +102,16 @@ public class Tablero implements Initializable {
                     b.setText(jugadorA.getNombre());
                     setTorn(false);
                     comprovarGanador();
+                    textTorn.setText("Torn: "+jugadorB.getNombre());
                 }else{
                     b.setText(jugadorB.getNombre());
                     setTorn(true);
                     comprovarGanador();
+                    textTorn.setText("Torn: "+jugadorA.getNombre());
                 }
-            }else {
-
             }
+
+            comprovarEmpate();
         }else{
             textTorn.setText("Click on Start to begin");
         }
@@ -138,8 +140,8 @@ public class Tablero implements Initializable {
 
 
     public void setTextJugadores() {
-        playerA.setText(Tablero.jugadorA.getNombre()+": "+Tablero.jugadorA.getPartidas_ganadas()+"/"+Tablero.jugadorA.getPartidas_empatadas());
-        playerB.setText(Tablero.jugadorB.getNombre()+": "+Tablero.jugadorB.getPartidas_ganadas()+"/"+Tablero.jugadorB.getPartidas_empatadas());
+        playerA.setText(jugadorA.getNombre()+": "+Tablero.jugadorA.getPartidas_ganadas()+"/"+Tablero.jugadorA.getPartidas_empatadas());
+        playerB.setText(jugadorB.getNombre()+": "+Tablero.jugadorB.getPartidas_ganadas()+"/"+Tablero.jugadorB.getPartidas_empatadas());
     }
 
     private void comprovarGanador() {
@@ -175,6 +177,15 @@ public class Tablero implements Initializable {
                 reBegin();
                 setTextJugadores();
             }
+        }
+    }
+
+    private void comprovarEmpate() {
+        if(button1play.getText().equals(jugadorA.getNombre()) || button1play.getText().equals(jugadorB.getNombre()) && button2play.getText().equals(jugadorA.getNombre()) || button2play.getText().equals(jugadorB.getNombre()) && button3play.getText().equals(jugadorA.getNombre()) || button3play.getText().equals(jugadorB.getNombre()) && button4play.getText().equals(jugadorA.getNombre()) || button4play.getText().equals(jugadorB.getNombre()) && button5play.getText().equals(jugadorA.getNombre()) || button5play.getText().equals(jugadorB.getNombre()) && button6play.getText().equals(jugadorA.getNombre()) || button6play.getText().equals(jugadorB.getNombre()) && button7play.getText().equals(jugadorA.getNombre()) || button7play.getText().equals(jugadorB.getNombre()) && button8play.getText().equals(jugadorA.getNombre()) || button8play.getText().equals(jugadorB.getNombre()) && button9play.getText().equals(jugadorA.getNombre()) || button9play.getText().equals(jugadorB.getNombre())){
+            jugadorA.partidas_empatadas++;
+            jugadorB.partidas_empatadas++;
+            setTextJugadores();
+            reBegin();
         }
     }
 
