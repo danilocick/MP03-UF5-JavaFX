@@ -35,8 +35,6 @@ public class InsertarNombre implements Initializable {
         //TODO: pasar nombre para crear jugador.
         Tablero.jugadorA = new Jugador(jugador1);
         Tablero.jugadorB = new Jugador(jugador2);
-
-        System.out.println(Tablero.jugadorA.getNombre()+Tablero.jugadorA.getPartidas_empatadas());
         Tablero.stageInsertar.close();
     }
 }

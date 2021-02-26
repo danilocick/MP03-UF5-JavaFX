@@ -48,6 +48,7 @@ public class Tablero implements Initializable {
     public Text playerA;
     public Text playerB;
 
+
     //Al carregar, es fa el metode initialize
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -181,7 +182,10 @@ public class Tablero implements Initializable {
     }
 
     private void comprovarEmpate() {
-        if(button1play.getText().equals(jugadorA.getNombre()) || button1play.getText().equals(jugadorB.getNombre()) && button2play.getText().equals(jugadorA.getNombre()) || button2play.getText().equals(jugadorB.getNombre()) && button3play.getText().equals(jugadorA.getNombre()) || button3play.getText().equals(jugadorB.getNombre()) && button4play.getText().equals(jugadorA.getNombre()) || button4play.getText().equals(jugadorB.getNombre()) && button5play.getText().equals(jugadorA.getNombre()) || button5play.getText().equals(jugadorB.getNombre()) && button6play.getText().equals(jugadorA.getNombre()) || button6play.getText().equals(jugadorB.getNombre()) && button7play.getText().equals(jugadorA.getNombre()) || button7play.getText().equals(jugadorB.getNombre()) && button8play.getText().equals(jugadorA.getNombre()) || button8play.getText().equals(jugadorB.getNombre()) && button9play.getText().equals(jugadorA.getNombre()) || button9play.getText().equals(jugadorB.getNombre())){
+        if(button1play.getText().equals("")||button2play.getText().equals("")||button3play.getText().equals("")||button4play.getText().equals("")||button5play.getText().equals("")||button6play.getText().equals("")||button7play.getText().equals("")||button8play.getText().equals("")||button9play.getText().equals("")){
+            System.out.println("SIGUE JUGANDO");
+        } else {
+            System.out.println("EMPATE");
             jugadorA.partidas_empatadas++;
             jugadorB.partidas_empatadas++;
             setTextJugadores();
