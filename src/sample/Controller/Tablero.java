@@ -10,19 +10,18 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.Data.Jugador;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Tablero implements Initializable {
 
     private Scene scenePrincipal;
     private Scene sceneInsertar;
+    private Scene sceneResults;
     private Stage stagePrincipal;
     public static Stage stageInsertar;
+    public static Stage stageResults;
 
     private boolean torn;
     private boolean iniciopartida = false;
@@ -71,9 +70,13 @@ public class Tablero implements Initializable {
         //insertar nombre
         b.setOnMouseClicked((event) -> {
             try {
+
+                //RADIO BUTTON BOT VS BOT
                 if (radioButtonA.isSelected()){
-                    Tablero.jugadorA = new Jugador("jugador1");
-                    Tablero.jugadorB = new Jugador("jugador2");
+                    Tablero.jugadorA = new Jugador("jugador1", true);
+                    Tablero.jugadorB = new Jugador("jugador2", true);
+
+                //RADIO BUTTON BOT VS human
                 }else if (radioButtonB.isSelected()){
                     FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setLocation(getClass().getResource("../insertarSoloUnJugador.fxml"));
@@ -84,6 +87,8 @@ public class Tablero implements Initializable {
                     stageInsertar.setTitle("Name");
                     stageInsertar.setScene(sceneInsertar);
                     stageInsertar.show();
+
+                //RADIO BUTTON human VS human
                 } else if (radioButtonC.isSelected()){
                     FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setLocation(getClass().getResource("../insertarNombre.fxml"));
@@ -136,6 +141,19 @@ public class Tablero implements Initializable {
     //closeApp
     public void onClickCloseApp(ActionEvent actionEvent) {
         stagePrincipal.close();
+    }
+
+    //Show  results
+    public void clickShowResult(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("../resultadosJugadores.fxml"));
+
+        sceneResults = new Scene(fxmlLoader.load());
+        stageResults = new Stage();
+
+        stageResults.setTitle("Name");
+        stageResults.setScene(sceneResults);
+        stageResults.show();
     }
 
     //Getters i Setters
@@ -218,8 +236,5 @@ public class Tablero implements Initializable {
         button7play.setText("");
         button8play.setText("");
         button9play.setText("");
-
-
     }
-
 }

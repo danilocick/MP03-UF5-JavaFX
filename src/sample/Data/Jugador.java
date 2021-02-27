@@ -4,9 +4,11 @@ public class Jugador {
     public int partidas_ganadas = 0;
     public int partidas_empatadas = 0;
     public String nombre;
+    public boolean robot;
 
-    public Jugador(String nombre) {
+    public Jugador(String nombre, boolean r) {
         this.nombre = nombre;
+        robot = r;
     }
 
     public String getNombre() {

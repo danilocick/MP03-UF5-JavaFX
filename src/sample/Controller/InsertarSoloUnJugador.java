@@ -31,8 +31,8 @@ public class InsertarSoloUnJugador implements Initializable {
         }
         jugador2 = "jugador2";
 
-        Tablero.jugadorA = new Jugador(jugador1);
-        Tablero.jugadorB = new Jugador(jugador2);
+        Tablero.jugadorA = new Jugador(jugador1, false);
+        Tablero.jugadorB = new Jugador(jugador2, true);
         Tablero.stageInsertar.close();
     }
 }

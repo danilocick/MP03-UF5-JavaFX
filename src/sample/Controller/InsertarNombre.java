@@ -14,7 +14,6 @@ public class InsertarNombre implements Initializable {
     public TextField nameFieldJugador1;
     public TextField nameFieldJugador2;
     public Button buttonClose;
-    public Tablero tablero = new Tablero();
 
     //Al carregar, es fa el metode initialize
     @Override
@@ -33,8 +32,8 @@ public class InsertarNombre implements Initializable {
             jugador2 = "jugador2";
         }
         //TODO: pasar nombre para crear jugador.
-        Tablero.jugadorA = new Jugador(jugador1);
-        Tablero.jugadorB = new Jugador(jugador2);
+        Tablero.jugadorA = new Jugador(jugador1, false);
+        Tablero.jugadorB = new Jugador(jugador2, false);
         Tablero.stageInsertar.close();
     }
 }
