@@ -1,5 +1,6 @@
 package sample;
 
+import com.sun.glass.ui.EventLoop;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,6 +10,8 @@ import sample.Controller.Tablero;
 
 public class Main extends Application {
 
+    public static Scene scene;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         //Carregar FXML
@@ -16,7 +19,7 @@ public class Main extends Application {
         Parent root = loader.load();
 
         //SCENE TO WORK
-        Scene scene = new Scene(root);
+        scene = new Scene(root);
 
         //Injectar Scene i Stage
         Tablero tablero = loader.getController();

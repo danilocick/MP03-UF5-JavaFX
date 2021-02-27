@@ -9,6 +9,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.Data.Jugador;
+import sample.Main;
 
 import java.io.IOException;
 import java.net.URL;
@@ -77,7 +78,8 @@ public class Tablero implements Initializable {
                     Tablero.jugadorB = new Jugador("jugador2", true);
 
                 //RADIO BUTTON BOT VS human
-                }else if (radioButtonB.isSelected()){
+                }
+                else if (radioButtonB.isSelected()){
                     FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setLocation(getClass().getResource("../insertarSoloUnJugador.fxml"));
 
@@ -89,7 +91,8 @@ public class Tablero implements Initializable {
                     stageInsertar.show();
 
                 //RADIO BUTTON human VS human
-                } else if (radioButtonC.isSelected()){
+                }
+                else if (radioButtonC.isSelected()){
                     FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setLocation(getClass().getResource("../insertarNombre.fxml"));
 
@@ -236,5 +239,10 @@ public class Tablero implements Initializable {
         button7play.setText("");
         button8play.setText("");
         button9play.setText("");
+    }
+
+    public void OnClickChangeCSSm(ActionEvent actionEvent) {
+        button1play.getStyleClass().removeAll();
+        button1play.getStyleClass().add("button");
     }
 }

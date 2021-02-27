@@ -27,6 +27,10 @@
                         <MenuItem fx:id="showResult" mnemonicParsing="false" onAction="#clickShowResult" text="Show Results" />
                   </items>
                 </Menu>
+                  <Menu fx:id="changeCSS" mnemonicParsing="false" text="Change CSS">
+                     <items>
+                        <MenuItem fx:id="other" mnemonicParsing="false" onAction="#OnClickChangeCSSm" text="Do it" />
+                     </items></Menu>
               </menus>
             </MenuBar>
             <SplitPane dividerPositions="0.6153846153846154" prefHeight="391.0" prefWidth="600.0">
