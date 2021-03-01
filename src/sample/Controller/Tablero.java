@@ -29,6 +29,7 @@ public class Tablero implements Initializable {
     private boolean iniciopartida = false;
     private boolean primeraJugada = true;
     private boolean wins;
+    private boolean css=false;
     public Button button1play;
     public Button button2play;
     public Button button3play;
@@ -265,9 +266,210 @@ public class Tablero implements Initializable {
         button9play.setText("");
     }
 
-    //TODO: change CSS on click button
     public void OnClickChangeCSSm(ActionEvent actionEvent) {
-
+        if (css){
+            button1play.setStyle("-fx-background-color:\n" +
+                    "      #707070,\n" +
+                    "      linear-gradient(#fcfcfc, #f3f3f3),\n" +
+                    "      linear-gradient(#f2f2f2 0%, #ebebeb 49%, #dddddd 50%, #cfcfcf 100%);\n" +
+                    "    -fx-background-insets: 0,1,2;\n" +
+                    "    -fx-background-radius: 3,2,1;\n" +
+                    "    -fx-padding: 3 30 3 30;\n" +
+                    "    -fx-text-fill: black;\n" +
+                    "    -fx-font-size: 14px;");
+            button2play.setStyle("-fx-background-color:\n" +
+                    "      #707070,\n" +
+                    "      linear-gradient(#fcfcfc, #f3f3f3),\n" +
+                    "      linear-gradient(#f2f2f2 0%, #ebebeb 49%, #dddddd 50%, #cfcfcf 100%);\n" +
+                    "    -fx-background-insets: 0,1,2;\n" +
+                    "    -fx-background-radius: 3,2,1;\n" +
+                    "    -fx-padding: 3 30 3 30;\n" +
+                    "    -fx-text-fill: black;\n" +
+                    "    -fx-font-size: 14px;");
+            button3play.setStyle("-fx-background-color:\n" +
+                    "      #707070,\n" +
+                    "      linear-gradient(#fcfcfc, #f3f3f3),\n" +
+                    "      linear-gradient(#f2f2f2 0%, #ebebeb 49%, #dddddd 50%, #cfcfcf 100%);\n" +
+                    "    -fx-background-insets: 0,1,2;\n" +
+                    "    -fx-background-radius: 3,2,1;\n" +
+                    "    -fx-padding: 3 30 3 30;\n" +
+                    "    -fx-text-fill: black;\n" +
+                    "    -fx-font-size: 14px;");
+            button4play.setStyle("-fx-background-color:\n" +
+                    "      #707070,\n" +
+                    "      linear-gradient(#fcfcfc, #f3f3f3),\n" +
+                    "      linear-gradient(#f2f2f2 0%, #ebebeb 49%, #dddddd 50%, #cfcfcf 100%);\n" +
+                    "    -fx-background-insets: 0,1,2;\n" +
+                    "    -fx-background-radius: 3,2,1;\n" +
+                    "    -fx-padding: 3 30 3 30;\n" +
+                    "    -fx-text-fill: black;\n" +
+                    "    -fx-font-size: 14px;");
+            button5play.setStyle("-fx-background-color:\n" +
+                    "      #707070,\n" +
+                    "      linear-gradient(#fcfcfc, #f3f3f3),\n" +
+                    "      linear-gradient(#f2f2f2 0%, #ebebeb 49%, #dddddd 50%, #cfcfcf 100%);\n" +
+                    "    -fx-background-insets: 0,1,2;\n" +
+                    "    -fx-background-radius: 3,2,1;\n" +
+                    "    -fx-padding: 3 30 3 30;\n" +
+                    "    -fx-text-fill: black;\n" +
+                    "    -fx-font-size: 14px;");
+            button6play.setStyle("-fx-background-color:\n" +
+                    "      #707070,\n" +
+                    "      linear-gradient(#fcfcfc, #f3f3f3),\n" +
+                    "      linear-gradient(#f2f2f2 0%, #ebebeb 49%, #dddddd 50%, #cfcfcf 100%);\n" +
+                    "    -fx-background-insets: 0,1,2;\n" +
+                    "    -fx-background-radius: 3,2,1;\n" +
+                    "    -fx-padding: 3 30 3 30;\n" +
+                    "    -fx-text-fill: black;\n" +
+                    "    -fx-font-size: 14px;");
+            button7play.setStyle("-fx-background-color:\n" +
+                    "      #707070,\n" +
+                    "      linear-gradient(#fcfcfc, #f3f3f3),\n" +
+                    "      linear-gradient(#f2f2f2 0%, #ebebeb 49%, #dddddd 50%, #cfcfcf 100%);\n" +
+                    "    -fx-background-insets: 0,1,2;\n" +
+                    "    -fx-background-radius: 3,2,1;\n" +
+                    "    -fx-padding: 3 30 3 30;\n" +
+                    "    -fx-text-fill: black;\n" +
+                    "    -fx-font-size: 14px;");
+            button8play.setStyle("-fx-background-color:\n" +
+                    "      #707070,\n" +
+                    "      linear-gradient(#fcfcfc, #f3f3f3),\n" +
+                    "      linear-gradient(#f2f2f2 0%, #ebebeb 49%, #dddddd 50%, #cfcfcf 100%);\n" +
+                    "    -fx-background-insets: 0,1,2;\n" +
+                    "    -fx-background-radius: 3,2,1;\n" +
+                    "    -fx-padding: 3 30 3 30;\n" +
+                    "    -fx-text-fill: black;\n" +
+                    "    -fx-font-size: 14px;");
+            button9play.setStyle("-fx-background-color:\n" +
+                    "      #707070,\n" +
+                    "      linear-gradient(#fcfcfc, #f3f3f3),\n" +
+                    "      linear-gradient(#f2f2f2 0%, #ebebeb 49%, #dddddd 50%, #cfcfcf 100%);\n" +
+                    "    -fx-background-insets: 0,1,2;\n" +
+                    "    -fx-background-radius: 3,2,1;\n" +
+                    "    -fx-padding: 3 30 3 30;\n" +
+                    "    -fx-text-fill: black;\n" +
+                    "    -fx-font-size: 14px;");
+            css=false;
+        }else {
+            button1play.setStyle("-fx-background-color:\n" +
+                    "        #090a0c,\n" +
+                    "        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),\n" +
+                    "        linear-gradient(#20262b, #191d22),\n" +
+                    "        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));\n" +
+                    "    -fx-background-radius: 5,4,3,5;\n" +
+                    "    -fx-background-insets: 0,1,2,0;\n" +
+                    "    -fx-text-fill: white;\n" +
+                    "    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );\n" +
+                    "    -fx-font-family: \"Arial\";\n" +
+                    "    -fx-text-fill: linear-gradient(white, #d0d0d0);\n" +
+                    "    -fx-font-size: 12px;\n" +
+                    "    -fx-padding: 10 20 10 20;");
+            button2play.setStyle("-fx-background-color:\n" +
+                    "        #090a0c,\n" +
+                    "        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),\n" +
+                    "        linear-gradient(#20262b, #191d22),\n" +
+                    "        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));\n" +
+                    "    -fx-background-radius: 5,4,3,5;\n" +
+                    "    -fx-background-insets: 0,1,2,0;\n" +
+                    "    -fx-text-fill: white;\n" +
+                    "    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );\n" +
+                    "    -fx-font-family: \"Arial\";\n" +
+                    "    -fx-text-fill: linear-gradient(white, #d0d0d0);\n" +
+                    "    -fx-font-size: 12px;\n" +
+                    "    -fx-padding: 10 20 10 20;");
+            button3play.setStyle("-fx-background-color:\n" +
+                    "        #090a0c,\n" +
+                    "        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),\n" +
+                    "        linear-gradient(#20262b, #191d22),\n" +
+                    "        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));\n" +
+                    "    -fx-background-radius: 5,4,3,5;\n" +
+                    "    -fx-background-insets: 0,1,2,0;\n" +
+                    "    -fx-text-fill: white;\n" +
+                    "    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );\n" +
+                    "    -fx-font-family: \"Arial\";\n" +
+                    "    -fx-text-fill: linear-gradient(white, #d0d0d0);\n" +
+                    "    -fx-font-size: 12px;\n" +
+                    "    -fx-padding: 10 20 10 20;");
+            button4play.setStyle("-fx-background-color:\n" +
+                    "        #090a0c,\n" +
+                    "        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),\n" +
+                    "        linear-gradient(#20262b, #191d22),\n" +
+                    "        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));\n" +
+                    "    -fx-background-radius: 5,4,3,5;\n" +
+                    "    -fx-background-insets: 0,1,2,0;\n" +
+                    "    -fx-text-fill: white;\n" +
+                    "    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );\n" +
+                    "    -fx-font-family: \"Arial\";\n" +
+                    "    -fx-text-fill: linear-gradient(white, #d0d0d0);\n" +
+                    "    -fx-font-size: 12px;\n" +
+                    "    -fx-padding: 10 20 10 20;");
+            button5play.setStyle("-fx-background-color:\n" +
+                    "        #090a0c,\n" +
+                    "        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),\n" +
+                    "        linear-gradient(#20262b, #191d22),\n" +
+                    "        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));\n" +
+                    "    -fx-background-radius: 5,4,3,5;\n" +
+                    "    -fx-background-insets: 0,1,2,0;\n" +
+                    "    -fx-text-fill: white;\n" +
+                    "    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );\n" +
+                    "    -fx-font-family: \"Arial\";\n" +
+                    "    -fx-text-fill: linear-gradient(white, #d0d0d0);\n" +
+                    "    -fx-font-size: 12px;\n" +
+                    "    -fx-padding: 10 20 10 20;");
+            button6play.setStyle("-fx-background-color:\n" +
+                    "        #090a0c,\n" +
+                    "        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),\n" +
+                    "        linear-gradient(#20262b, #191d22),\n" +
+                    "        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));\n" +
+                    "    -fx-background-radius: 5,4,3,5;\n" +
+                    "    -fx-background-insets: 0,1,2,0;\n" +
+                    "    -fx-text-fill: white;\n" +
+                    "    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );\n" +
+                    "    -fx-font-family: \"Arial\";\n" +
+                    "    -fx-text-fill: linear-gradient(white, #d0d0d0);\n" +
+                    "    -fx-font-size: 12px;\n" +
+                    "    -fx-padding: 10 20 10 20;");
+            button7play.setStyle("-fx-background-color:\n" +
+                    "        #090a0c,\n" +
+                    "        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),\n" +
+                    "        linear-gradient(#20262b, #191d22),\n" +
+                    "        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));\n" +
+                    "    -fx-background-radius: 5,4,3,5;\n" +
+                    "    -fx-background-insets: 0,1,2,0;\n" +
+                    "    -fx-text-fill: white;\n" +
+                    "    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );\n" +
+                    "    -fx-font-family: \"Arial\";\n" +
+                    "    -fx-text-fill: linear-gradient(white, #d0d0d0);\n" +
+                    "    -fx-font-size: 12px;\n" +
+                    "    -fx-padding: 10 20 10 20;");
+            button8play.setStyle("-fx-background-color:\n" +
+                    "        #090a0c,\n" +
+                    "        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),\n" +
+                    "        linear-gradient(#20262b, #191d22),\n" +
+                    "        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));\n" +
+                    "    -fx-background-radius: 5,4,3,5;\n" +
+                    "    -fx-background-insets: 0,1,2,0;\n" +
+                    "    -fx-text-fill: white;\n" +
+                    "    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );\n" +
+                    "    -fx-font-family: \"Arial\";\n" +
+                    "    -fx-text-fill: linear-gradient(white, #d0d0d0);\n" +
+                    "    -fx-font-size: 12px;\n" +
+                    "    -fx-padding: 10 20 10 20;");
+            button9play.setStyle("-fx-background-color:\n" +
+                    "        #090a0c,\n" +
+                    "        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),\n" +
+                    "        linear-gradient(#20262b, #191d22),\n" +
+                    "        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));\n" +
+                    "    -fx-background-radius: 5,4,3,5;\n" +
+                    "    -fx-background-insets: 0,1,2,0;\n" +
+                    "    -fx-text-fill: white;\n" +
+                    "    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );\n" +
+                    "    -fx-font-family: \"Arial\";\n" +
+                    "    -fx-text-fill: linear-gradient(white, #d0d0d0);\n" +
+                    "    -fx-font-size: 12px;\n" +
+                    "    -fx-padding: 10 20 10 20;");
+            css=true;
+        }
     }
 
     //BOTS
@@ -407,14 +609,12 @@ public class Tablero implements Initializable {
             textTorn.setText("Torn: "+jugadorA.getNombre());
         }
     }
-
     public void JuegoBots() throws InterruptedException {
         while (!wins){
             TiradaBot();
         }
         Thread.sleep(10000);
     }
-
     private void comprovarGanadorBot() {
         if (isTorn()) {
             //JGADOR 2
@@ -450,7 +650,6 @@ public class Tablero implements Initializable {
             }
         }
     }
-
     private void comprovarEmpateBot() {
         if(button1play.getText().equals("")||button2play.getText().equals("")||button3play.getText().equals("")||button4play.getText().equals("")||button5play.getText().equals("")||button6play.getText().equals("")||button7play.getText().equals("")||button8play.getText().equals("")||button9play.getText().equals("")){
         } else {
