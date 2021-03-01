@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import sample.Data.Jugador;
 import sample.Main;
 
+import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,9 +25,10 @@ public class Tablero implements Initializable {
     public static Stage stageInsertar;
     public static Stage stageResults;
 
-    private boolean torn;
+    private static boolean torn = true;
     private boolean iniciopartida = false;
     private boolean primeraJugada = true;
+    private boolean wins;
     public Button button1play;
     public Button button2play;
     public Button button3play;
@@ -74,8 +76,14 @@ public class Tablero implements Initializable {
 
                 //RADIO BUTTON BOT VS BOT
                 if (radioButtonA.isSelected()){
-                    Tablero.jugadorA = new Jugador("jugador1", true);
-                    Tablero.jugadorB = new Jugador("jugador2", true);
+
+                    if (Tablero.jugadorA == null){
+                        Tablero.jugadorA = new Jugador("jugador1", true);
+                        Tablero.jugadorB = new Jugador("jugador2", true);
+                    }
+                    reBegin();
+                    wins = false;
+                    JuegoBots();
 
                 //RADIO BUTTON BOT VS human
                 }
@@ -104,7 +112,7 @@ public class Tablero implements Initializable {
                     stageInsertar.show();
                 }
 
-            } catch (IOException e) {
+            } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
             }
         });
@@ -127,6 +135,11 @@ public class Tablero implements Initializable {
                     setTorn(false);
                     comprovarGanador();
                     textTorn.setText("Torn: "+jugadorB.getNombre());
+                    if (jugadorB.robot) {
+                        TiradaBot();
+                        textTorn.setText("Torn: "+jugadorA.getNombre());
+                        setTorn(true);
+                    }
                 }else{
                     b.setText(jugadorB.getNombre());
                     setTorn(true);
@@ -175,12 +188,16 @@ public class Tablero implements Initializable {
         this.iniciopartida = iniciopartida;
     }
 
-
     public void setTextJugadores() {
         playerA.setText(jugadorA.getNombre()+": "+Tablero.jugadorA.getPartidas_ganadas()+"/"+Tablero.jugadorA.getPartidas_empatadas());
         playerB.setText(jugadorB.getNombre()+": "+Tablero.jugadorB.getPartidas_ganadas()+"/"+Tablero.jugadorB.getPartidas_empatadas());
     }
 
+
+
+
+
+    //VARIANTS DEL JOC
     private void comprovarGanador() {
         if (isTorn()) {
             //JGADOR 2
@@ -189,14 +206,17 @@ public class Tablero implements Initializable {
                 jugadorB.partidas_ganadas++;
                 reBegin();
                 setTextJugadores();
+                wins =true;
             } else if (button1play.getText().equals(jugadorB.getNombre()) && button4play.getText().equals(jugadorB.getNombre()) && button7play.getText().equals(jugadorB.getNombre()) || button2play.getText().equals(jugadorB.getNombre()) && button5play.getText().equals(jugadorB.getNombre()) && button8play.getText().equals(jugadorB.getNombre()) || button3play.getText().equals(jugadorB.getNombre()) && button6play.getText().equals(jugadorB.getNombre()) && button9play.getText().equals(jugadorB.getNombre())){
                 jugadorB.partidas_ganadas++;
                 reBegin();
                 setTextJugadores();
+                wins =true;
             } else if (button1play.getText().equals(jugadorB.getNombre()) && button5play.getText().equals(jugadorB.getNombre()) && button9play.getText().equals(jugadorB.getNombre()) || button3play.getText().equals(jugadorB.getNombre()) && button5play.getText().equals(jugadorB.getNombre()) && button7play.getText().equals(jugadorB.getNombre())){
                 jugadorB.partidas_ganadas++;
                 reBegin();
                 setTextJugadores();
+                wins =true;
             }
         }else {
             //JGADOR 1
@@ -205,14 +225,17 @@ public class Tablero implements Initializable {
                 jugadorA.partidas_ganadas++;
                 reBegin();
                 setTextJugadores();
+                wins =true;
             } else if (button1play.getText().equals(jugadorA.getNombre()) && button4play.getText().equals(jugadorA.getNombre()) && button7play.getText().equals(jugadorA.getNombre()) || button2play.getText().equals(jugadorA.getNombre()) && button5play.getText().equals(jugadorA.getNombre()) && button8play.getText().equals(jugadorA.getNombre()) || button3play.getText().equals(jugadorA.getNombre()) && button6play.getText().equals(jugadorA.getNombre()) && button9play.getText().equals(jugadorA.getNombre())){
                 jugadorA.partidas_ganadas++;
                 reBegin();
                 setTextJugadores();
+                wins =true;
             } else if (button1play.getText().equals(jugadorA.getNombre()) && button5play.getText().equals(jugadorA.getNombre()) && button9play.getText().equals(jugadorA.getNombre()) || button3play.getText().equals(jugadorA.getNombre()) && button5play.getText().equals(jugadorA.getNombre()) && button7play.getText().equals(jugadorA.getNombre())){
                 jugadorA.partidas_ganadas++;
                 reBegin();
                 setTextJugadores();
+                wins =true;
             }
         }
     }
@@ -225,6 +248,7 @@ public class Tablero implements Initializable {
             jugadorA.partidas_empatadas++;
             jugadorB.partidas_empatadas++;
             setTextJugadores();
+            wins =true;
             reBegin();
         }
     }
@@ -241,8 +265,199 @@ public class Tablero implements Initializable {
         button9play.setText("");
     }
 
+    //TODO: change CSS on click button
     public void OnClickChangeCSSm(ActionEvent actionEvent) {
-        button1play.getStyleClass().removeAll();
-        button1play.getStyleClass().add("button");
+
+    }
+
+    //BOTS
+    public void TiradaBot() {
+        int x;
+        if(isTorn()){
+            x = ((int) (Math.random()*(9 - 1))) + 1;
+            while (true) {
+                if(x == 1){
+                    if (button1play.getText().equals("")) {
+                        button1play.setText(jugadorA.getNombre());
+                        break;
+                    }
+                    x++;
+                }else if(x == 2){
+                    if (button2play.getText().equals("")) {
+                        button2play.setText(jugadorA.getNombre());
+                        break;
+                    }
+                    x++;
+                }else if(x == 3){
+                    if (button3play.getText().equals("")) {
+                        button3play.setText(jugadorA.getNombre());
+                        break;
+                    }
+                    x++;
+                }else if(x == 4){
+                    if (button4play.getText().equals("")) {
+                        button4play.setText(jugadorA.getNombre());
+                        break;
+                    }
+                    x++;
+                }else if(x == 5){
+                    if (button5play.getText().equals("")) {
+                        button5play.setText(jugadorA.getNombre());
+                        break;
+                    }
+                    x++;
+                }else if(x == 6){
+                    if (button6play.getText().equals("")) {
+                        button6play.setText(jugadorA.getNombre());
+                        break;
+                    }
+                    x++;
+                }else if(x == 7){
+                    if (button7play.getText().equals("")) {
+                        button7play.setText(jugadorA.getNombre());
+                        break;
+                    }
+                    x++;
+                }else if(x == 8){
+                    if (button8play.getText().equals("")) {
+                        button8play.setText(jugadorA.getNombre());
+                        break;
+                    }
+                    x++;
+                }else if(x == 9){
+                    if (button9play.getText().equals("")) {
+                        button9play.setText(jugadorA.getNombre());
+                        break;
+                    }
+                    x = 1;
+                }
+            }
+            setTorn(false);
+            comprovarGanadorBot();
+            comprovarEmpateBot();
+            textTorn.setText("Torn: "+jugadorB.getNombre());
+        }
+        else{
+            x = ((int) (Math.random()*(9 - 1))) + 1;
+            while (true) {
+                if(x == 1){
+                    if (button1play.getText().equals("")) {
+                        button1play.setText(jugadorB.getNombre());
+                        break;
+                    }
+                    x++;
+                }else if(x == 2){
+                    if (button2play.getText().equals("")) {
+                        button2play.setText(jugadorB.getNombre());
+                        break;
+                    }
+                    x++;
+                }else if(x == 3){
+                    if (button3play.getText().equals("")) {
+                        button3play.setText(jugadorB.getNombre());
+                        break;
+                    }
+                    x++;
+                }else if(x == 4){
+                    if (button4play.getText().equals("")) {
+                        button4play.setText(jugadorB.getNombre());
+                        break;
+                    }
+                    x++;
+                }else if(x == 5){
+                    if (button5play.getText().equals("")) {
+                        button5play.setText(jugadorB.getNombre());
+                        break;
+                    }
+                    x++;
+                }else if(x == 6){
+                    if (button6play.getText().equals("")) {
+                        button6play.setText(jugadorB.getNombre());
+                        break;
+                    }
+                    x++;
+                }else if(x == 7){
+                    if (button7play.getText().equals("")) {
+                        button7play.setText(jugadorB.getNombre());
+                        break;
+                    }
+                    x++;
+                }else if(x == 8){
+                    if (button8play.getText().equals("")) {
+                        button8play.setText(jugadorB.getNombre());
+                        break;
+                    }
+                    x++;
+                }else if(x == 9){
+                    if (button9play.getText().equals("")) {
+                        button9play.setText(jugadorB.getNombre());
+                        break;
+                    }
+                    x = 1;
+                }
+            }
+            setTorn(true);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            comprovarGanadorBot();
+            comprovarEmpateBot();
+            textTorn.setText("Torn: "+jugadorA.getNombre());
+        }
+    }
+
+    public void JuegoBots() throws InterruptedException {
+        while (!wins){
+            TiradaBot();
+        }
+        Thread.sleep(10000);
+    }
+
+    private void comprovarGanadorBot() {
+        if (isTorn()) {
+            //JGADOR 2
+
+            if (button1play.getText().equals(jugadorB.getNombre()) && button2play.getText().equals(jugadorB.getNombre()) && button3play.getText().equals(jugadorB.getNombre()) || button4play.getText().equals(jugadorB.getNombre()) && button5play.getText().equals(jugadorB.getNombre()) && button6play.getText().equals(jugadorB.getNombre()) || button7play.getText().equals(jugadorB.getNombre()) && button8play.getText().equals(jugadorB.getNombre()) && button9play.getText().equals(jugadorB.getNombre())){
+                jugadorB.partidas_ganadas++;
+                setTextJugadores();
+                wins =true;
+            } else if (button1play.getText().equals(jugadorB.getNombre()) && button4play.getText().equals(jugadorB.getNombre()) && button7play.getText().equals(jugadorB.getNombre()) || button2play.getText().equals(jugadorB.getNombre()) && button5play.getText().equals(jugadorB.getNombre()) && button8play.getText().equals(jugadorB.getNombre()) || button3play.getText().equals(jugadorB.getNombre()) && button6play.getText().equals(jugadorB.getNombre()) && button9play.getText().equals(jugadorB.getNombre())){
+                jugadorB.partidas_ganadas++;
+                setTextJugadores();
+                wins =true;
+            } else if (button1play.getText().equals(jugadorB.getNombre()) && button5play.getText().equals(jugadorB.getNombre()) && button9play.getText().equals(jugadorB.getNombre()) || button3play.getText().equals(jugadorB.getNombre()) && button5play.getText().equals(jugadorB.getNombre()) && button7play.getText().equals(jugadorB.getNombre())){
+                jugadorB.partidas_ganadas++;
+                setTextJugadores();
+                wins =true;
+            }
+        }else {
+            //JGADOR 1
+
+            if (button1play.getText().equals(jugadorA.getNombre()) && button2play.getText().equals(jugadorA.getNombre()) && button3play.getText().equals(jugadorA.getNombre()) || button4play.getText().equals(jugadorA.getNombre()) && button5play.getText().equals(jugadorA.getNombre()) && button6play.getText().equals(jugadorA.getNombre()) || button7play.getText().equals(jugadorA.getNombre()) && button8play.getText().equals(jugadorA.getNombre()) && button9play.getText().equals(jugadorA.getNombre())){
+                jugadorA.partidas_ganadas++;
+                setTextJugadores();
+                wins =true;
+            } else if (button1play.getText().equals(jugadorA.getNombre()) && button4play.getText().equals(jugadorA.getNombre()) && button7play.getText().equals(jugadorA.getNombre()) || button2play.getText().equals(jugadorA.getNombre()) && button5play.getText().equals(jugadorA.getNombre()) && button8play.getText().equals(jugadorA.getNombre()) || button3play.getText().equals(jugadorA.getNombre()) && button6play.getText().equals(jugadorA.getNombre()) && button9play.getText().equals(jugadorA.getNombre())){
+                jugadorA.partidas_ganadas++;
+                setTextJugadores();
+                wins =true;
+            } else if (button1play.getText().equals(jugadorA.getNombre()) && button5play.getText().equals(jugadorA.getNombre()) && button9play.getText().equals(jugadorA.getNombre()) || button3play.getText().equals(jugadorA.getNombre()) && button5play.getText().equals(jugadorA.getNombre()) && button7play.getText().equals(jugadorA.getNombre())){
+                jugadorA.partidas_ganadas++;
+                setTextJugadores();
+                wins =true;
+            }
+        }
+    }
+
+    private void comprovarEmpateBot() {
+        if(button1play.getText().equals("")||button2play.getText().equals("")||button3play.getText().equals("")||button4play.getText().equals("")||button5play.getText().equals("")||button6play.getText().equals("")||button7play.getText().equals("")||button8play.getText().equals("")||button9play.getText().equals("")){
+        } else {
+            jugadorA.partidas_empatadas++;
+            jugadorB.partidas_empatadas++;
+            setTextJugadores();
+            wins =true;
+        }
     }
 }

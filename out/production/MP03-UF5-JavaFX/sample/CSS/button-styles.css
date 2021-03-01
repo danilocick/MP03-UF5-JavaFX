@@ -1,4 +1,4 @@
-#button2play,#button3play,#button4play,#button5play,#button6play,#button7play,#button8play,#button9play {
+#button1play, #button2play,#button3play,#button4play,#button5play,#button6play,#button7play,#button8play,#button9play {
     -fx-background-color:
         #090a0c,
         linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
@@ -12,11 +12,4 @@
     -fx-text-fill: linear-gradient(white, #d0d0d0);
     -fx-font-size: 12px;
     -fx-padding: 10 20 10 20;
-}
-
-#button1play {
-    -fx-text-fill: rgb(49, 89, 23);
-    -fx-border-color: rgb(49, 89, 23);
-    -fx-border-radius: 5;
-    -fx-padding: 3 6 6 6;
 }

@@ -11,6 +11,7 @@ import sample.Controller.Tablero;
 public class Main extends Application {
 
     public static Scene scene;
+    public static boolean css = true;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -28,6 +29,10 @@ public class Main extends Application {
 
         //CSS
 //        http://fxexperience.com/2011/12/styling-fx-buttons-with-css/
+        if(css){
+            scene.getStylesheets().add("sample/CSS/button-styles-dark.css");
+
+        }else
         scene.getStylesheets().add("sample/CSS/button-styles.css");
 
         primaryStage.setTitle("TIC TAC TOE");
