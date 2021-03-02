@@ -30,10 +30,6 @@ public class Main extends Application {
 
         //CSS
 //        http://fxexperience.com/2011/12/styling-fx-buttons-with-css/
-        if(css){
-            scene.getStylesheets().add("sample/CSS/button-styles-dark.css");
-
-        }else
         scene.getStylesheets().add("sample/CSS/button-styles.css");
 
         primaryStage.setTitle("TIC TAC TOE");

@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -46,6 +47,7 @@ public class Tablero implements Initializable {
     public RadioButton radioButtonA;
     public RadioButton radioButtonB;
     public RadioButton radioButtonC;
+    public MenuItem dark;
     public Text textTorn;
 
     //PLAYERS
@@ -202,6 +204,36 @@ public class Tablero implements Initializable {
 
 
 
+    private void setStartEnable() {
+        buttonStart.setDisable(false);
+    }
+
+    private void reBegin() {
+        button1play.setText("");
+        button2play.setText("");
+        button3play.setText("");
+        button4play.setText("");
+        button5play.setText("");
+        button6play.setText("");
+        button7play.setText("");
+        button8play.setText("");
+        button9play.setText("");
+    }
+
+    public void OnClickChangeCSSm(ActionEvent actionEvent) {
+        scene.getStylesheets().clear();
+        if(css) {
+            scene.getStylesheets().add("sample/CSS/button-styles.css");
+            dark.setText("White");
+            css=false;
+        }else {
+            scene.getStylesheets().add("sample/CSS/button-styles-dark.css");
+            dark.setText("Dark");
+            css=true;
+        }
+    }
+
+
     //VARIANTS DEL JOC
     private void comprovarGanador() {
         if (isTorn()) {
@@ -256,7 +288,6 @@ public class Tablero implements Initializable {
             }
         }
     }
-
     private void comprovarEmpate() {
         tiradas++;
         if (tiradas == 9){
@@ -269,35 +300,6 @@ public class Tablero implements Initializable {
         }
 
     }
-
-    private void setStartEnable() {
-        buttonStart.setDisable(false);
-    }
-
-    private void reBegin() {
-        button1play.setText("");
-        button2play.setText("");
-        button3play.setText("");
-        button4play.setText("");
-        button5play.setText("");
-        button6play.setText("");
-        button7play.setText("");
-        button8play.setText("");
-        button9play.setText("");
-    }
-
-    public void OnClickChangeCSSm(ActionEvent actionEvent) {
-
-        scene.getStylesheets().clear();
-        if(css) {
-            scene.getStylesheets().add("sample/CSS/button-styles-dark.css");
-            css=false;
-        }else {
-            scene.getStylesheets().add("sample/CSS/button-styles.css");
-            css=true;
-        }
-    }
-
 
     //BOTS
     public void TiradaBot() {

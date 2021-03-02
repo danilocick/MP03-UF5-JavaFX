@@ -27,9 +27,9 @@
                         <MenuItem fx:id="showResult" mnemonicParsing="false" onAction="#clickShowResult" text="Show Results" />
                   </items>
                 </Menu>
-                  <Menu fx:id="changeCSS" mnemonicParsing="false" text="Change CSS">
+                  <Menu fx:id="ChangeCSS" mnemonicParsing="false" text="Change CSS">
                      <items>
-                        <MenuItem fx:id="other" mnemonicParsing="false" onAction="#OnClickChangeCSSm" text="Do it" />
+                        <MenuItem fx:id="dark" mnemonicParsing="false" onAction="#OnClickChangeCSSm" text="Dark" />
                      </items></Menu>
               </menus>
             </MenuBar>
